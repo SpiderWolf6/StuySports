@@ -69,7 +69,7 @@ api = Api(app)
 parser = reqparse.RequestParser()
 parser.add_argument("val")
 
-cred = credentials.Certificate("C:/goutam/soham/service-account.json")
+cred = credentials.Certificate("C:/user/folder/service-account.json") #set appropriate file path for service-account.json file
 firebase_admin.initialize_app(cred)
 print(cred)
 
@@ -77,7 +77,7 @@ def _get_access_token():
     SCOPES = []
     SCOPES.append("https://www.googleapis.com/auth/firebase.messaging")
     credentials = firebase-adminsdk.Credentials.from_service_account_file(
-        'C:/goutam/soham/service-account.json', scopes=SCOPES)
+        'C:/user/folder/service-account.json', scopes=SCOPES) #set appropriate file path for service-account.json file
     request = google.auth.transport.requests.Request()
     credentials.refresh(request)
     return credentials.token
