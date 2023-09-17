@@ -88,7 +88,7 @@ class HomePage extends StatelessWidget{
 
 //   @override
 //   Widget build(BuildContext context) {
-//     String url = 'http://192.168.1.170:5001/testing';
+//     String url = 'url';
 //     var data;
 //     String output = 'Initial Output';
 //     late String val = '';
@@ -179,7 +179,7 @@ class HomePage extends StatelessWidget{
 //             thickness: 100.0,
 //             height: 100.0,
 //           ),
-//           Text("Yo how's it going"),
+//           Text("Button Hit"),
 //         ],
 //       ),
 //     );
