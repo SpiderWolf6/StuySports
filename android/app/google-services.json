@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "96938578692",
+    "project_id": "stuy-app-820c4",
+    "storage_bucket": "stuy-app-820c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96938578692:android:b5eef8064676b52172b651",
+        "android_client_info": {
+          "package_name": "com.example.stuy_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "96938578692-l1aopcbbcme348cprof1drvcvj899tb6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.stuy_app",
+            "certificate_hash": "500a9a2b032dc323b4ad161764a32716b5aec340"
+          }
+        },
+        {
+          "client_id": "96938578692-fsb4ubanf5399r61vb3knim69k3t4t3t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkuLjzWi0wFgcWRyw9nxfues7N5NYpFJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "96938578692-abb5jubcr3ce9rg15119afpdm50cr7k5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
