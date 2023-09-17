@@ -119,7 +119,7 @@ class _DashboardState extends State<Dashboard> {
                 ElevatedButton(
                   child: Text('Sign Out'),
                   onPressed: () async {
-                    url = "http://192.168.1.170:5001/stuysports1";
+                    url = "url"; #set appropriate API url
                     print(url);
                     data = await fetchData(url, user.email!);
                     print(data);
