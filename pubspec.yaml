@@ -1,4 +1,4 @@
-name: stuy_app
+name: stuy_sports
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -55,6 +55,7 @@ dependencies:
   animated_toggle_switch: ^0.7.0
   expansion_tile_card: ^3.0.0
   http: ^1.1.0
+  flutter_local_notifications: ^15.1.1
 
 dev_dependencies:
   flutter_test:

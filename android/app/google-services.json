@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "96938578692",
-    "project_id": "stuy-app-820c4",
-    "storage_bucket": "stuy-app-820c4.appspot.com"
+    "project_number": "373837197128",
+    "project_id": "stuy-sports",
+    "storage_bucket": "stuy-sports.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:96938578692:android:b5eef8064676b52172b651",
+        "mobilesdk_app_id": "1:373837197128:android:6b36e1df04ec32dc4e8d7d",
         "android_client_info": {
-          "package_name": "com.example.stuy_app"
+          "package_name": "com.example.stuy_sports"
         }
       },
       "oauth_client": [
         {
-          "client_id": "96938578692-l1aopcbbcme348cprof1drvcvj899tb6.apps.googleusercontent.com",
+          "client_id": "373837197128-a6rbbd5bj6bthr0qhlneoksab5m5d2ie.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.stuy_app",
+            "package_name": "com.example.stuy_sports",
             "certificate_hash": "500a9a2b032dc323b4ad161764a32716b5aec340"
           }
         },
         {
-          "client_id": "96938578692-fsb4ubanf5399r61vb3knim69k3t4t3t.apps.googleusercontent.com",
+          "client_id": "373837197128-9u49btfhva6dk80l9luom89o78s4p9d6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBkuLjzWi0wFgcWRyw9nxfues7N5NYpFJA"
+          "current_key": "AIzaSyBea6pD7dFkSqprdr1GVjiWnmJ5_kaGgHQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "96938578692-abb5jubcr3ce9rg15119afpdm50cr7k5.apps.googleusercontent.com",
+              "client_id": "373837197128-9u49btfhva6dk80l9luom89o78s4p9d6.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

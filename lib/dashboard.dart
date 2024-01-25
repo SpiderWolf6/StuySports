@@ -5,27 +5,33 @@ import 'team-profile.dart';
 import 'api/firebase_api.dart';
 import 'api/python_api.dart';
 import 'account-page.dart';
+import 'api/python_api.dart';
 
 class TileDetail {
   String sport_name;
   String team_name;
   String subtitle;
   IconData next;
+  int int_num;
   String psal_link;
-  TileDetail({required this.sport_name, required this.team_name, required this.subtitle, required this.next, required this.psal_link});
+  TileDetail({required this.sport_name, required this.team_name, required this.subtitle, required this.next, required this.psal_link, required this.int_num});
 }
 
 class Dashboard extends StatefulWidget {
+  List<dynamic>? switchValueTesting; 
+
+  Dashboard({ Key? key, required this.switchValueTesting});
   @override
   _DashboardState createState() => _DashboardState();
 }
 
 class _DashboardState extends State<Dashboard> {
+
   final List<TileDetail> tiles = [
-    TileDetail(sport_name: 'Soccer', team_name: "Boys Varsity Soccer", subtitle: 'More Info', next: Icons.sports_soccer, psal_link: "https://www.psal.org/profiles/team-profile.aspx#012/02519"),
-    TileDetail(sport_name: 'Basketball', team_name: "Boys Varsity Basketball", subtitle: 'More Info!', next: Icons.sports_basketball, psal_link: "https://www.psal.org/profiles/team-profile.aspx#001/02519"),
-    TileDetail(sport_name: 'Baseball', team_name: "Boys Varsity Baseball", subtitle: 'More Info!', next: Icons.sports_baseball, psal_link: "https://www.psal.org/profiles/team-profile.aspx#006/02519"),
-    TileDetail(sport_name: 'Football', team_name: "Boys Varsity Football", subtitle: 'More Info!', next: Icons.sports_football, psal_link: "https://www.psal.org/profiles/team-profile.aspx#005/02519"),
+    TileDetail(sport_name: 'Soccer', team_name: "Boys Varsity Soccer", subtitle: 'More Info', next: Icons.sports_soccer, psal_link: "https://www.psal.org/profiles/team-profile.aspx#012/02519", int_num: 0),
+    TileDetail(sport_name: 'Basketball', team_name: "Boys Varsity Basketball", subtitle: 'More Info!', next: Icons.sports_basketball, psal_link: "https://www.psal.org/profiles/team-profile.aspx#001/02519", int_num: 1),
+    TileDetail(sport_name: 'Baseball', team_name: "Boys Varsity Baseball", subtitle: 'More Info!', next: Icons.sports_baseball, psal_link: "https://www.psal.org/profiles/team-profile.aspx#006/02519", int_num: 2),
+    TileDetail(sport_name: 'Football', team_name: "Boys Varsity Football", subtitle: 'More Info!', next: Icons.sports_football, psal_link: "https://www.psal.org/profiles/team-profile.aspx#005/02519", int_num: 3),
   ];
   
   final List<Widget> modes = <Widget>[
@@ -79,6 +85,8 @@ class _DashboardState extends State<Dashboard> {
                 subtitle: tiles[index].subtitle,
                 next: tiles[index].next,
                 psal_link: tiles[index].psal_link,
+                int_num: tiles[index].int_num,
+                switchValue: widget.switchValueTesting,
               ),
             ),
           ),
@@ -119,7 +127,7 @@ class _DashboardState extends State<Dashboard> {
                 ElevatedButton(
                   child: Text('Sign Out'),
                   onPressed: () async {
-                    url = "url"; #set appropriate API url
+                    url = "http://192.168.1.170:5001/stuysports1";
                     print(url);
                     data = await fetchData(url, user.email!);
                     print(data);

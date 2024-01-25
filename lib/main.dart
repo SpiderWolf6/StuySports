@@ -2,11 +2,12 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:stuy_app/provider/google-sign-in.dart';
+import 'package:stuy_sports/provider/google-sign-in.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'api/firebase_api.dart';
 import 'api/python_api.dart';
+import 'api/helper_notifications.dart';
 import 'dashboard.dart';
 import 'sign-in-page.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -20,6 +21,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await FirebaseApi().initNotifications();
+  LocalNotification.initialize();
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    LocalNotification.showNotification(message);
+  });
   runApp(MyApp());
 }
 
@@ -29,7 +34,7 @@ class MyApp extends StatelessWidget {
     create: (context) => GoogleSignInProvider(),
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Your Dashboard',
+      title: 'StuyActivities Dashboard',
       theme: ThemeData.dark().copyWith(),
       home: HomePage(),
     ),
@@ -37,6 +42,8 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget{
+  List<bool> hold = [false, false, false, false];
+
   @override
   Widget build (BuildContext context) => Scaffold (
     body: StreamBuilder(
@@ -45,7 +52,17 @@ class HomePage extends StatelessWidget{
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(child: CircularProgressIndicator());
         } else if (snapshot.hasData) {
-          return Dashboard();
+          return FutureBuilder<List<dynamic>>(
+            future: collecting_data(),
+            builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
+              if(snapshot.hasData) {
+                var hello = snapshot.data;
+                print('Snapshot $hello');
+                return Dashboard(switchValueTesting: hello);
+              }
+              return Dashboard(switchValueTesting: hold);
+            }
+          );
         } else if (snapshot.hasError) {
           return Center(child: Text('Something Went Wrong!'));
         } else {
@@ -56,7 +73,15 @@ class HomePage extends StatelessWidget{
   );
 }
 
-#ALTERNATE ORIGINAL LAYOUT, USE FOR REFERENCE
+  Future<List<dynamic>> collecting_data() async {
+    var data;
+    final user = FirebaseAuth.instance.currentUser!;
+    data = json.decode(await fetchData('http://192.168.1.170:5001/stuysports2', user.email!));
+    print(data);
+    return data;
+}
+
+
 // class MyApp extends StatelessWidget {
 //   const MyApp({Key? key}) : super(key: key);
 
@@ -73,7 +98,7 @@ class HomePage extends StatelessWidget{
 //     );
 //   }
 // }
-
+ 
 //  class SwitchListTileExample extends StatefulWidget {
 //   const SwitchListTileExample({super.key});
 
@@ -88,11 +113,11 @@ class HomePage extends StatelessWidget{
 
 //   @override
 //   Widget build(BuildContext context) {
-//     String url = 'url';
+//     String url = 'http://192.168.1.170:5001/testing';
 //     var data;
 //     String output = 'Initial Output';
 //     late String val = '';
-
+    
 //     return Scaffold(
 //       body: Column(
 //         children: <Widget>[
@@ -179,7 +204,7 @@ class HomePage extends StatelessWidget{
 //             thickness: 100.0,
 //             height: 100.0,
 //           ),
-//           Text("Button Hit"),
+//           Text("Yo how's it going"),
 //         ],
 //       ),
 //     );
@@ -203,7 +228,7 @@ class HomePage extends StatelessWidget{
 //       okButton,  
 //     ],  
 //   );  
-
+  
 //   // show the dialog  
 //   showDialog(  
 //     context: context,  

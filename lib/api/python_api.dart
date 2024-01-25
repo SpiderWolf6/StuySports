@@ -14,5 +14,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
         body: send,
       );
       print("sent");
-      return json.decode(response.body);
+      print(json.decode(response.body)[0]);
+      return response.body;
     }

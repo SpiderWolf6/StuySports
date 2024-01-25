@@ -1,6 +1,6 @@
 {
-    "name": "stuy_app",
-    "short_name": "stuy_app",
+    "name": "stuy_sports",
+    "short_name": "stuy_sports",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

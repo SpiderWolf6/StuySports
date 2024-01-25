@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'sign-in-page.dart';
 
 class AccountLayout extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
+    final _auth = FirebaseAuth.instance;
 
     return Scaffold(
       appBar: AppBar(
@@ -24,8 +26,9 @@ class AccountLayout extends StatelessWidget{
             height: 100,
             width: 100,
             child: TextButton (
-              onPressed: () {
+              onPressed: () async {
                 print("signed out");
+                await _auth.signOut().then((value) => SignUpWidget());
               }, 
               child: Text("Sign Out", ),
               style: TextButton.styleFrom(
