@@ -17,5 +17,4 @@ samples, guidance on mobile development, and a full API reference.
 
 ### Additional Notes
 This is a mobile Android/IOS app currently in development for the Stuyvesant Sports community.
-The project is called "stuy_app" locally.
 The frontend built using Flutter is complete, and is currently being integrated with the Python API backend (including Firebase remote push notifications).
